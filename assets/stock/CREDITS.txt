@@ -12,3 +12,4 @@ upvc-3: Mixed brick gable end with slate roof and UPVC window, Gillingham, Kent,
 upvc-4: Windows of Pondicherry - Orange wall, UPVC window and Golden grill.jpg — iMahesh — CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Windows_of_Pondicherry_-_Orange_wall,_UPVC_window_and_Golden_grill.jpg
 upvc-5: Scotland, Isle of Arran, Kildonan, former Free Church Manse.JPG — Vincent van Zeijst — CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Scotland,_Isle_of_Arran,_Kildonan,_former_Free_Church_Manse.JPG
 factory: Sainthimat menuiseries.jpg — SAINTHIMAT — CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Sainthimat_menuiseries.jpg
+factory (replaced): Carpintería metálica en La Cárcova.jpg — NZlach — CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Carpinter%C3%ADa_met%C3%A1lica_en_La_C%C3%A1rcova.jpg

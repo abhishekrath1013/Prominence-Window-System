@@ -267,7 +267,7 @@ button { font: inherit; cursor: pointer; }
    FACTORY
    --------------------------------------------------------- */
 .factory { position: relative; line-height: 0; background: #1f1f1f; }
-.factory img { display: block; width: 100%; height: calc(100vw * 480 / 1326); object-fit: cover; object-position: center 96%; }
+.factory img { display: block; width: 100%; height: calc(100vw * 480 / 1326); object-fit: cover; object-position: center 72%; }
 
 /* ---------------------------------------------------------
    WHY / ACCORDION
@@ -292,7 +292,7 @@ button { font: inherit; cursor: pointer; }
 .acc__item.is-open .acc__panel { grid-template-rows: 1fr; }
 .acc__panel > div { overflow: hidden; }
 .acc__body { display: flex; gap: 31px; padding: 0 0 43px 48px; align-items: flex-start; }
-.acc__body p { flex: 1; font-size: 12.5px; line-height: 1.75; color: #3d4645; max-width: 496px; }
+.acc__body p { flex: 1; font-size: 15.5px; line-height: 1.7; color: #333d3c; max-width: 540px; }
 .acc__img {
   flex: 0 0 186px; height: 119px; margin-top: 0; border-radius: 2px;
   background: var(--tone, #b79e86) center / cover no-repeat;
@@ -451,3 +451,25 @@ button { font: inherit; cursor: pointer; }
 .showcase__tabs button::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: currentColor; transform: scaleX(0); transition: transform .3s ease; }
 .showcase__tabs .is-active::after { transform: scaleX(1); }
 @media (prefers-reduced-motion: reduce) { .slide.is-in { animation: none; } }
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+@media (max-width: 700px) {
+  /* showcase → stacked 2-column grid */
+  .showcase { height: auto; min-height: 0; display: block; padding: 96px 16px 72px; }
+  .showcase__track { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 14px; height: auto; padding: 0; overflow: visible; }
+  .slide, .slide.is-active { flex: none; height: auto; margin: 0; transition: none; }
+  .slide__img { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1 / 1.05; opacity: 1; border-radius: 6px; }
+  .slide.is-active .slide__img { outline: 2px solid rgba(255,255,255,.9); outline-offset: 3px; }
+  .slide__cap { position: static; opacity: 1; transform: none; padding-top: 12px; pointer-events: none; transition: none; }
+  .slide__cap h3 { font-size: 16px; }
+  .slide__cap p { display: none; font-size: 12.5px; }
+  .slide.is-active .slide__cap p { display: block; }
+  .showcase__tabs { position: static; margin-top: 40px; }
+  .showcase__tabs button { font-size: 11px; }
+  .acc__body p { font-size: 15px; }
+}
+
+/* the proof-point lines sit partly off-screen when the hero is panned on small screens — hide them there */
+@media (max-width: 900px) { .stat { display: none; } }
