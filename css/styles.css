@@ -437,8 +437,7 @@ button { font: inherit; cursor: pointer; }
 .hero__tip.is-alu { --tip: var(--navy); }
 .hero__tip.is-upvc { --tip: var(--green); }
 @media (hover: hover) and (pointer: fine) {
-  .hero[data-state="home"] { cursor: none; }
-  .hero[data-state="home"] .copy__link { cursor: none; }
+  .hero, .hero .copy__link { cursor: none; }
 }
 
 /* showcase tab switch — minimal fade / rise */

@@ -39,7 +39,7 @@
   var textT;
   function setState(next) {
     if (next === state) return;
-    state = next;
+    state = next; lastChange = Date.now();
     hero.dataset.state = next;                 // images / panels move straight away…
     hero.classList.add('pan');
     layout();
@@ -59,26 +59,34 @@
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
   var tip = document.getElementById('tip');
 
+  var PAGES = { alu: 'aluminium.html', upvc: 'upvc.html' };
+  var lastChange = 0;
+
   hero.addEventListener('pointermove', function (e) {
-    if (e.pointerType !== 'mouse' || !canHover.matches || state !== 'home') { hero.classList.remove('has-tip'); return; }
+    if (e.pointerType !== 'mouse' || !canHover.matches) { hero.classList.remove('has-tip'); return; }
     tip.style.transform = 'translate(' + (e.clientX + 16) + 'px,' + (e.clientY + 16) + 'px)';
     var r = hero.getBoundingClientRect();
-    tip.classList.toggle('is-alu', e.clientX - r.left >= r.width / 2);
-    tip.classList.toggle('is-upvc', e.clientX - r.left < r.width / 2);
+    var side = state !== 'home' ? state : (e.clientX - r.left >= r.width / 2 ? 'alu' : 'upvc');
+    tip.classList.toggle('is-alu', side === 'alu');
+    tip.classList.toggle('is-upvc', side === 'upvc');
     hero.classList.add('has-tip');
   }, { passive: true });
   hero.addEventListener('pointerleave', function () { hero.classList.remove('has-tip'); });
 
+  // First click opens a side; once it is open a click anywhere in the hero continues to that system's page.
   hero.addEventListener('click', function (e) {
     var t = e.target.closest('[data-go]');
+    var recent = Date.now() - lastChange < 1200;          // ignore clicks while the pan is still running
     if (t) {
       var go = t.getAttribute('data-go');
-      if (t.tagName === 'A' && state === go) return;          // already open → follow the link
+      if (t.tagName === 'A' && state === go) { if (recent) e.preventDefault(); return; }   // open → follow the link
       if (t.tagName === 'A') e.preventDefault();
       setState(go);
     } else if (state === 'home') {
       var r = hero.getBoundingClientRect();
       setState(e.clientX - r.left < r.width / 2 ? 'upvc' : 'alu');
+    } else if (!recent) {
+      window.location.href = PAGES[state];
     }
     hero.classList.remove('has-tip');
   });

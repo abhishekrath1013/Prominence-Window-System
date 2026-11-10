@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>uPVC Window Systems — Prominance Window Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .pg { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; background: #eef0ef; }
+    .pg__copy { padding: 180px 6vw 80px; align-self: center; }
+    .pg__copy h1 { font-weight: 200; font-size: clamp(38px, 4.2vw, 64px); line-height: 1.1; letter-spacing: -1.4px; color: rgba(0,0,0,.6); max-width: 12em; }
+    .pg__copy p { margin-top: 24px; max-width: 30em; font-size: 16px; line-height: 1.7; color: #3d4645; }
+    .pg__row { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .pg__btn { display: inline-flex; align-items: center; height: 48px; padding: 0 24px; font-family: var(--font-ui); font-weight: 700; font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; background: #419f49; color: #fff; }
+    .pg__btn--ghost { background: transparent; color: #222; border: 1px solid rgba(0,0,0,.4); }
+    .pg__img { background: url(assets/stock/upvc-1.jpg) center / cover no-repeat; min-height: 50vh; }
+    @media (max-width: 800px) { .pg { grid-template-columns: 1fr; } .pg__copy { padding: 130px 24px 48px; } .pg__img { min-height: 55vw; order: -1; margin-top: 73px; } .pg__copy { padding-top: 40px; } }
+  </style>
+</head>
+<body>
+  <header class="nav is-solid" id="nav">
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html#why">About</a>
+      <a href="index.html#why">Why us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a class="nav__logo" href="index.html" aria-label="Prominance Window Systems — home">
+      <img src="assets/hero/logo.png" alt="Prominance Window Systems" width="166" height="31">
+    </a>
+    <div class="nav__cta"><a class="btn-outline" href="index.html#contact">Get a Free Quote</a></div>
+  </header>
+  <main class="pg">
+    <section class="pg__copy">
+      <h1>Thermal comfort, weather protection and everyday living.</h1>
+      <p>uPVC window and door systems from Prominance — comfortable, weather-tight and easy to live with. Product details are coming soon; talk to our team to find the right system for your home.</p>
+      <div class="pg__row">
+        <a class="pg__btn" href="index.html#contact">Request a callback</a>
+        <a class="pg__btn pg__btn--ghost" href="aluminium.html">Explore Aluminium</a>
+        <a class="pg__btn pg__btn--ghost" href="index.html">← Back to home</a>
+      </div>
+    </section>
+    <div class="pg__img" role="img" aria-label="uPVC Window Systems"></div>
+  </main>
+  <script>
+    // same hide-on-scroll navbar behaviour as the homepage
+    (function(){var n=document.getElementById('nav'),l=scrollY;addEventListener('scroll',function(){var y=scrollY,d=y-l;if(y<80)n.classList.remove('is-hidden');else if(d>6)n.classList.add('is-hidden');else if(d<-6)n.classList.remove('is-hidden');if(Math.abs(d)>6)l=y;},{passive:true});})();
+  </script>
+</body>
+</html>
