@@ -18,11 +18,16 @@
   --font: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-ui: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif;
   --ease: cubic-bezier(.5, 0, .1, 1);
+  --ease-out: cubic-bezier(.22, .7, .2, 1);
   --dur: 1.5s;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* Lenis (smooth scroll) recommended resets */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 body {
   margin: 0;
   font-family: var(--font);
@@ -75,14 +80,29 @@ button { font: inherit; cursor: pointer; }
   --k: 1;               /* stage scale, set from JS */
   --ox: 0px;            /* stage x offset, set from JS */
   --oy: 0px;
-  position: relative;
+  position: sticky; top: 0; z-index: 0;
   height: 100vh; height: 100svh; min-height: 480px;
   background: #c3c3c3;
   overflow: hidden;
   isolation: isolate;
   touch-action: pan-y;
 }
-.hero__clip { position: absolute; inset: 0; overflow: hidden; }
+.hero__clip { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 0; transform: scale(calc(1 - var(--p, 0) * .04)); will-change: transform; }
+/* as the next section covers the hero it dims slightly */
+.hero::after { content: ''; position: absolute; inset: 0; z-index: 40; background: #000; opacity: calc(var(--p, 0) * .55); pointer-events: none; }
+
+/* layered scroll: every section after the hero slides over it */
+main > section:not(.hero) { position: relative; z-index: 1; }
+.showcase { box-shadow: 0 -24px 60px rgba(0, 0, 0, .35); }
+.footer { position: relative; z-index: 2; }
+
+/* minimal reveal-on-scroll */
+.reveal:not(.in) { opacity: 0; }
+.reveal.in { animation: rise .9s var(--ease-out) backwards; animation-delay: var(--d, 0ms); }
+@keyframes rise { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+.factory img.reveal.in { animation-name: rise-soft; animation-duration: 1.2s; }
+@keyframes rise-soft { from { opacity: 0; scale: 1.03; } to { opacity: 1; scale: 1; } }
+@media (prefers-reduced-motion: reduce) { .reveal:not(.in) { opacity: 1; } .reveal.in { animation: none; } .hero__clip { transform: none; } }
 .stage {
   position: absolute; top: 0; left: 0;
   width: 1326px; height: 823px;

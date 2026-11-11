@@ -113,7 +113,24 @@
   var m = /state=(home|alu|upvc)/.exec(location.hash);
   if (m) { hero.style.setProperty('--dur', '1ms'); setState(m[1]); hero.dataset.text = m[1]; hero.classList.remove('txt-out'); clearTimeout(textT); requestAnimationFrame(function () { hero.style.removeProperty('--dur'); }); }
 
-  /* ------------------------------------------------- NAVBAR: hide on scroll down, show on scroll up */
+  /* ------------------------------------------------- SMOOTH SCROLL (Lenis) */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lenis = null;
+  if (window.Lenis && !reduce) {
+    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+    // in-page links glide too
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a || a.hasAttribute('data-go')) return;
+      var id = a.getAttribute('href');
+      var el = id.length > 1 && document.querySelector(id);
+      if (id === '#top') { e.preventDefault(); lenis.scrollTo(0); }
+      else if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: 0 }); }
+    });
+  }
+
+  /* ------------------------------------------------- NAVBAR + hero cover */
   var nav = document.getElementById('nav'), lastY = window.scrollY, navTick = false;
   function navScroll() {
     var y = window.scrollY, dy = y - lastY;
@@ -122,10 +139,35 @@
     else if (dy > 6) nav.classList.add('is-hidden');
     else if (dy < -6) nav.classList.remove('is-hidden');
     if (Math.abs(dy) > 6 || y < 80) lastY = y;
+    // the hero stays pinned; the next section slides over it, so dim / ease it back as it is covered
+    var p = Math.max(0, Math.min(1, y / Math.max(1, hero.offsetHeight)));
+    hero.style.setProperty('--p', p.toFixed(3));
     navTick = false;
   }
   window.addEventListener('scroll', function () { if (!navTick) { navTick = true; requestAnimationFrame(navScroll); } }, { passive: true });
   navScroll();
+
+  /* ------------------------------------------------- REVEAL ON SCROLL */
+  (function () {
+    var groups = [
+      ['.showcase__track', 0], ['.showcase__tabs', 120],
+      ['.factory img', 0],
+      ['.acc__item', 90],
+      ['.cta__copy > *', 70], ['.card', 150],
+      ['.footer__brand, .footer__col', 100], ['.footer__legal', 0]
+    ];
+    var els = [];
+    groups.forEach(function (g) {
+      Array.prototype.forEach.call(document.querySelectorAll(g[0]), function (el, i) {
+        el.classList.add('reveal'); el.style.setProperty('--d', (i * g[1]) + 'ms'); els.push(el);
+      });
+    });
+    if (!('IntersectionObserver' in window) || reduce) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
 
   /* ------------------------------------------------- SHOWCASE */
   // Stock photography (see assets/stock/CREDITS.txt). Swap in project photos any time.
