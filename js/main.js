@@ -131,6 +131,22 @@
   }
 
   /* ------------------------------------------------- NAVBAR + hero cover */
+  var explore = document.querySelector('.explore');
+  var readyT;
+  function exploreProgress() {
+    if (!explore) return;
+    if (reduce) { explore.classList.add('is-ready'); return; }
+    var r = explore.getBoundingClientRect(), total = Math.max(1, r.height - window.innerHeight);
+    var t = Math.max(0, Math.min(1, -r.top / total));
+    var sv = Math.max(0, Math.min(1, t / 0.5));                 // the picture zooms out / shrinks / blurs
+    explore.style.setProperty('--s', sv.toFixed(3));
+    if (sv >= 0.985) {                                          // once it has settled, all pointers pop together after a short beat
+      if (!explore.classList.contains('is-ready') && !readyT) readyT = setTimeout(function () { explore.classList.add('is-ready'); readyT = null; }, 260);
+    } else if (sv < 0.9) {
+      clearTimeout(readyT); readyT = null; explore.classList.remove('is-ready');
+    }
+  }
+  window.addEventListener('resize', exploreProgress);
   var nav = document.getElementById('nav'), lastY = window.scrollY, navTick = false;
   function navScroll() {
     var y = window.scrollY, dy = y - lastY;
@@ -142,6 +158,7 @@
     // the hero stays pinned; the next section slides over it, so dim / ease it back as it is covered
     var p = Math.max(0, Math.min(1, y / Math.max(1, hero.offsetHeight)));
     hero.style.setProperty('--p', p.toFixed(3));
+    exploreProgress();
     navTick = false;
   }
   window.addEventListener('scroll', function () { if (!navTick) { navTick = true; requestAnimationFrame(navScroll); } }, { passive: true });
@@ -150,9 +167,10 @@
   /* ------------------------------------------------- REVEAL ON SCROLL */
   (function () {
     var groups = [
-      ['.showcase__track', 0], ['.showcase__tabs', 120],
+      ['.showcase__track', 0], ['.showcase__tabs', 120], ['.explore__bg', 0],
       ['.factory img', 0],
-      ['.acc__item', 90],
+      ['.faq__item', 90], ['.faq__more', 0],
+      ['.infra__intro > *', 80], ['.infra__card', 110], ['.infra__note', 0],
       ['.cta__copy > *', 70], ['.card', 150],
       ['.footer__brand, .footer__col', 100], ['.footer__legal', 0]
     ];
@@ -263,26 +281,39 @@
     { i: 'chat',  t: 'Exceptional Support', tone: '#a39382',
       p: 'Responsive after-sales service and a dedicated helpline whenever you need us.' }
   ];
-  var acc = document.getElementById('acc');
+  /* ---- explore: pointers (tabs) switch the card */
+  var xtabs = document.getElementById('xtabs'), xcard = document.getElementById('xcard');
+  var xi = 0;
+  function showItem(n) {
+    xi = n;
+    Array.prototype.forEach.call(xtabs.children, function (b, k) { b.classList.toggle('is-active', k === n); b.setAttribute('aria-selected', k === n); });
+    xcard.classList.add('is-swap');
+    setTimeout(function () {
+      document.getElementById('xtitle').textContent = ITEMS[n].t;
+      document.getElementById('xdesc').textContent = ITEMS[n].p;
+      var im = document.getElementById('ximg');
+      im.style.backgroundImage = 'url(assets/stock/acc-' + (n + 1) + '.jpg)'; im.setAttribute('aria-label', ITEMS[n].t);
+      xcard.classList.remove('is-swap');
+    }, 180);
+  }
   ITEMS.forEach(function (it, n) {
-    var el = document.createElement('div');
-    el.className = 'acc__item' + (n === 0 ? ' is-open' : '');
-    el.innerHTML =
-      '<button class="acc__head" type="button" aria-expanded="' + (n === 0) + '">' +
-        '<img class="acc__ico" src="assets/icons/acc-' + (n + 1) + '.png" alt="">' +
-        '<span class="acc__title"></span><span class="acc__tog" aria-hidden="true"></span>' +
-      '</button>' +
-      '<div class="acc__panel"><div><div class="acc__body"><p></p><div class="acc__img" style="--tone:' + it.tone + ';background-image:url(assets/stock/acc-' + (n + 1) + '.jpg)"></div></div></div></div>';
-    el.querySelector('.acc__title').textContent = it.t;
-    el.querySelector('p').textContent = it.p;
-    el.querySelector('.acc__head').addEventListener('click', function () {
-      var open = !el.classList.contains('is-open');
-      acc.querySelectorAll('.acc__item').forEach(function (x) {
-        x.classList.remove('is-open'); x.querySelector('.acc__head').setAttribute('aria-expanded', 'false');
-      });
-      if (open) { el.classList.add('is-open'); this.setAttribute('aria-expanded', 'true'); }
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'explore__tab'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', it.t);
+    b.style.setProperty('--i', n);
+    b.innerHTML = '<img src="assets/icons/acc-' + (n + 1) + '.png" alt="">';
+    b.addEventListener('click', function () { showItem(n); });
+    xtabs.appendChild(b);
+  });
+  showItem(0);
+  document.getElementById('xtitle').textContent = ITEMS[0].t;
+
+  /* ---- FAQ accordion */
+  document.querySelectorAll('.faq__item').forEach(function (item) {
+    item.querySelector('.faq__q').addEventListener('click', function () {
+      var open = !item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item').forEach(function (x) { x.classList.remove('is-open'); x.querySelector('.faq__q').setAttribute('aria-expanded', 'false'); });
+      if (open) { item.classList.add('is-open'); this.setAttribute('aria-expanded', 'true'); }
     });
-    acc.appendChild(el);
   });
 
   /* ------------------------------------------------- CONTACT SCALE */
@@ -290,7 +321,7 @@
   var cta = document.getElementById('contact');
   function scaleCta() {
     var vw = cta.clientWidth;
-    var z = Math.max(0.6, Math.min(1.25, (0.7964 * vw - 60) / 959));
+    var z = Math.max(0.6, Math.min(1.25, vw / 1326));
     cta.style.setProperty('--z', z.toFixed(3));
   }
   scaleCta();

@@ -17,7 +17,7 @@
     <nav class="nav__links" aria-label="Primary">
       <a href="#why">About</a>
       <a href="#why">Why us</a>
-      <a href="#contact">Contact</a>
+      <a href="#showcase">Products</a>
     </nav>
     <a class="nav__logo" href="#top" aria-label="Prominance Window Systems — home">
       <img src="assets/hero/logo.png" alt="Prominance Window Systems" width="166" height="31">
@@ -64,23 +64,25 @@
           <img class="l l--img12" src="assets/hero/image12-flip.png" alt="" style="--hl:-331.48px;--ht:364.02px;--hw:899.64px;--hh:599.76px;--ax:-397.58px;--ay:-51.29px;--asx:1.0606;--asy:1.0606;--ux:397.58px;--uy:51.29px;--usx:0.9394;--usy:0.9394;z-index:12">
 
           <!-- the man — two poses cross-fade -->
-          <img class="l man man--open" src="assets/hero/image18.png" alt="Brand ambassador welcoming you with open arms"
-               style="--hl:177px;--ht:185px;--hw:1001px;--hh:1494px;--ax:-526.01px;--ay:-26.01px;--asx:0.8652;--asy:0.8647;--ux:632.00px;--uy:-26.01px;--usx:0.8652;--usy:0.8647;z-index:13">
+          <img class="l man man--open" src="assets/hero/srk-02.png" alt="Brand ambassador welcoming you with open arms"
+               style="--hl:-72px;--ht:112px;--hw:1457px;--hh:711px;--ax:-399px;--ay:0px;--ux:399px;--uy:0px;z-index:13">
           <img class="l man man--alu" src="assets/hero/image19-flip.png" alt="Brand ambassador pointing at the aluminium window"
                style="--hl:-349.01px;--ht:158.99px;--hw:866.02px;--hh:1291.87px;--ax:0.00px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:0.00px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:13">
           <img class="l man man--upvc" src="assets/hero/image19.png" alt="Brand ambassador pointing at the uPVC window"
                style="--hl:809px;--ht:158.99px;--hw:866.02px;--hh:1291.87px;--ax:0.00px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:0.00px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:13">
 
           <!-- uPVC copy -->
-          <div class="l copy copy--upvc" style="--hl:90.08px;--ht:166.5px;--hw:298px;--ax:-399.00px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:371.92px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:14">
-            <h2>Thermal comfort, weather protection and everyday living.</h2>
-            <a class="copy__link" href="upvc.html" data-go="upvc">← Explore uPVC Window Systems</a>
+          <div class="l copy copy--upvc" style="--hl:119px;--ht:137px;--hw:271px;--ax:-399.00px;--ay:0.00px;--ux:371.92px;--uy:0.00px;z-index:14">
+            <h2>Peace of<br>mind</h2>
+            <a class="hero-btn hero-btn--green" href="upvc.html" data-go="upvc">← uPVC Windows</a>
+            <ul class="copy__list"><li>Sturdy</li><li>Weather-proof</li><li>Sound-proof</li></ul>
           </div>
 
           <!-- Aluminium copy -->
-          <div class="l copy copy--alu" style="--hl:945px;--ht:122px;--hw:301px;--ax:-399.01px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:399.00px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:15">
-            <h2>Designed for clean sightlines and greater architectural freedom.</h2>
-            <a class="copy__link" href="aluminium.html" data-go="alu">Explore Aluminium Window Systems →</a>
+          <div class="l copy copy--alu" style="--hl:948px;--ht:137px;--hw:271px;--ax:-402px;--ay:0.00px;--ux:396px;--uy:0.00px;z-index:15">
+            <h2>Piece of<br>art</h2>
+            <a class="hero-btn hero-btn--navy" href="aluminium.html" data-go="alu">Aluminum Windows →</a>
+            <ul class="copy__list"><li>Slim profiles</li><li>Sleek finish</li><li>Premium finish</li></ul>
           </div>
 
           <!-- decor, top-left -->
@@ -115,41 +117,108 @@
     </section>
 
     <!-- ============ FACTORY ============ -->
-    <section class="factory" aria-label="Manufacturing facility">
-      <img src="assets/stock/factory.jpg" alt="Window manufacturing workshop" width="3840" height="2555" loading="lazy" decoding="async">
+    <section class="explore" id="why" aria-label="Why Prominance">
+      <div class="explore__pin">
+        <div class="explore__bg reveal"><div><img src="assets/stock/factory.jpg" alt="" decoding="async"></div></div>
+        <div class="explore__ui">
+          <div class="explore__tabs" id="xtabs" role="tablist" aria-label="Why Prominance"></div>
+          <div class="explore__card" id="xcard">
+            <div class="explore__txt">
+              <h3 id="xtitle"></h3>
+              <p id="xdesc"></p>
+              <a class="explore__more" href="#contact">Learn more</a>
+            </div>
+            <div class="explore__img" id="ximg" role="img" aria-label=""></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ============ WHY / ACCORDION ============ -->
-    <section class="why" id="why">
-      <div class="why__inner">
-        <div class="acc" id="acc"></div>
+    <!-- ============ IN-HOUSE EXPERTISE ============ -->
+    <section class="infra" id="infrastructure" aria-labelledby="infra-h">
+      <div class="infra__inner">
+        <div class="infra__intro">
+          <p class="infra__eyebrow">Our infrastructure</p>
+          <h2 id="infra-h">In-house expertise</h2>
+          <p class="infra__lead">From precision blending to rigorous testing, our in-house capabilities create uPVC profiles engineered for Indian conditions.</p>
+          <div class="infra__cap">
+            <strong>22,000</strong>
+            <span>MT annual production capacity</span>
+            <span>Manufacturing since 2011</span>
+          </div>
+        </div>
+        <div class="infra__grid">
+          <article class="infra__card">
+            <div class="infra__txt"><h3>Precision in<br>every blend</h3><p>PLC- and SCADA-controlled batching ensures accurate weighing, mixing and temperature control for a consistent blend.</p></div>
+            <div class="infra__photo"><img src="assets/infra/infra-1.png" alt="Automated weighing and batching" loading="lazy" decoding="async"></div>
+          </article>
+          <article class="infra__card">
+            <div class="infra__txt"><h3>Expert tooling.<br>Lasting precision.</h3><p>In-house die design and specialist maintenance keep high-grade steel tooling production-ready and dimensions precise.</p></div>
+            <div class="infra__photo"><img src="assets/infra/infra-2.png" alt="Tool design and maintenance" loading="lazy" decoding="async"></div>
+          </article>
+          <article class="infra__card infra__card--flip">
+            <div class="infra__photo"><img src="assets/infra/infra-3.png" alt="Extruders and downstream equipment" loading="lazy" decoding="async"></div>
+            <div class="infra__txt"><h3>European technology.<br>Consistent output.</h3><p>Imported extruders, advanced calibration and purified chilled water deliver consistent profiles with accurate dimensions.</p></div>
+          </article>
+          <article class="infra__card infra__card--flip">
+            <div class="infra__photo"><img src="assets/infra/infra-4.png" alt="Quality lab and research" loading="lazy" decoding="async"></div>
+            <div class="infra__txt"><h3>Tested rigorously.<br>Developed in-house.</h3><p>European and Japanese lab equipment supports EN 12608 testing, backed by in-house R&amp;D, 3D printing and prototyping.</p></div>
+          </article>
+          <p class="infra__note">Engineered for UV resistance and mechanical performance beyond EN 12608-1:2016 requirements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h" class="sr">Frequently asked questions</h2>
+      <div class="faq__inner" id="faqlist">
+        <div class="faq__item is-open">
+          <button class="faq__q" type="button" aria-expanded="true"><span>Are uPVC Doors easy to break in?</span><span class="faq__tog" aria-hidden="true"></span></button>
+          <div class="faq__a"><div><p>Any door is as secure as its glass. It’s entirely dependant on the type of glass used. There are plenty of glasses that could serve the purpose of security and one of them is laminated glass. It is majorly employed in uPVC doors which puts break-ins right next to impossible. It does not allow the glass to shatter &amp; holds itself up during an attempt to break in.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><span>Can uPVC windows be recycled?</span><span class="faq__tog" aria-hidden="true"></span></button>
+          <div class="faq__a"><div><p>Yes. uPVC is fully recyclable — old profiles can be collected, ground down and extruded again into new products, which keeps waste out of landfill.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><span>How to clean uPVC windows?</span><span class="faq__tog" aria-hidden="true"></span></button>
+          <div class="faq__a"><div><p>Wipe the frames with a soft cloth and mild soapy water, rinse with clean water and dry. Avoid abrasive pads and harsh solvents so the surface stays smooth and bright.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><span>What are top hung uPVC Windows?</span><span class="faq__tog" aria-hidden="true"></span></button>
+          <div class="faq__a"><div><p>Top hung windows are hinged along the top edge and open outward from the bottom. They let air in even in light rain, and suit bathrooms, kitchens and any space where you want a secure opening.</p></div></div>
+        </div>
+        <div class="faq__more"><a href="#contact">Explore FAQs</a></div>
       </div>
     </section>
 
     <!-- ============ CTA / FORM ============ -->
     <section class="cta" id="contact">
-      <img class="cta__man" src="assets/hero/image19-flip.png" alt="">
-      <div class="cta__inner">
+      <div class="cta__stage">
+        <img class="cta__man" src="assets/hero/image19-flip.png" alt="">
         <div class="cta__copy">
-          <p class="eyebrow">Let’s build something better</p>
-          <h2>Your next chapter<br>starts with a<br>better window.</h2>
+          <p class="eyebrow cta__eyebrow">Let’s build something better</p>
+          <h2>Your next<br>chapter<br>starts with a<br>better window.</h2>
           <p class="cta__lead">Building or renovating? Our team will help you choose the right uPVC or aluminium systems, configurations and finishes for your space.</p>
-          <p class="eyebrow eyebrow--talk">Prefer to talk?</p>
-          <a class="cta__phone" href="tel:18008334500">1800 833 4500</a>
-          <p class="cta__toll">Toll-free &nbsp;•&nbsp; <a href="tel:+919500895005">+91 9500895005</a></p>
+          <div class="cta__talk">
+            <p class="eyebrow">Prefer to talk?</p>
+            <a class="cta__phone" href="tel:18008334500">1800 833 4500</a>
+            <p class="cta__toll">Toll-free &nbsp;•&nbsp; <a href="tel:+919500895005">+91 9500895005</a></p>
+          </div>
         </div>
 
         <form class="card" id="lead" novalidate>
           <h3>Let’s find your perfect fit.</h3>
           <p class="card__sub">Request a free consultation</p>
-          <div class="grid">
-            <label><span>Full name</span><input name="name" type="text" placeholder="Enter your name" autocomplete="name" required></label>
-            <label><span>Phone number</span><input name="phone" type="tel" placeholder="+91  Mobile number" autocomplete="tel" required></label>
-            <label><span>Email address</span><input name="email" type="email" placeholder="you@example.com" autocomplete="email"></label>
-            <label><span>City</span><input name="city" type="text" placeholder="Your city" autocomplete="address-level2"></label>
-            <label class="grid__full"><span>I’m interested in</span>
+          <div class="fields">
+            <label><span class="sr">Full name</span><input name="name" type="text" placeholder="Enter your full name" autocomplete="name" required></label>
+            <label><span class="sr">Mobile number</span><input name="phone" type="tel" placeholder="Mobile number (+91)" autocomplete="tel" required></label>
+            <label><span class="sr">Email</span><input name="email" type="email" placeholder="Email" autocomplete="email"></label>
+            <label><span class="sr">City</span><input name="city" type="text" placeholder="Your city" autocomplete="address-level2"></label>
+            <label><span class="sr">I’m interested in</span>
               <select name="interest">
-                <option value="">Choose uPVC or aluminium systems</option>
+                <option value="">I’m interested in</option>
                 <option>uPVC windows &amp; doors</option>
                 <option>Aluminium windows &amp; doors</option>
                 <option>Not sure yet</option>
