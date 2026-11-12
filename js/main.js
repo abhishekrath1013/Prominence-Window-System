@@ -7,6 +7,9 @@
 (function () {
   'use strict';
 
+  /* intro animation runs on every load (CSS keyed on html.intro), then the class is dropped */
+  setTimeout(function () { document.documentElement.classList.remove('intro'); }, 3400);
+
   /* ------------------------------------------------------- HERO */
   var hero = document.getElementById('hero');
   var DESIGN_W = 1326, DESIGN_H = 823;

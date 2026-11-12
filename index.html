@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="intro">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +31,7 @@
 
     <!-- ============ HERO : split uPVC | Aluminium ============ -->
     <section class="hero" id="hero" data-state="home" data-text="home" aria-label="Choose your window system">
+      <div class="veil" aria-hidden="true"></div>
       <div class="hero__clip">
         <div class="stage" id="stage">
 
@@ -63,6 +64,13 @@
           <img class="l l--img13" src="assets/hero/image13-flip.png" alt="" style="--hl:-354.99px;--ht:403.13px;--hw:876.89px;--hh:584.59px;--ax:-399.01px;--ay:-48.92px;--asx:1.0606;--asy:1.0606;--ux:399.01px;--uy:48.92px;--usx:0.9394;--usy:0.9394;z-index:11">
           <img class="l l--img12" src="assets/hero/image12-flip.png" alt="" style="--hl:-331.48px;--ht:364.02px;--hw:899.64px;--hh:599.76px;--ax:-397.58px;--ay:-51.29px;--asx:1.0606;--asy:1.0606;--ux:397.58px;--uy:51.29px;--usx:0.9394;--usy:0.9394;z-index:12">
 
+          <!-- flattened hero scene (home state only) -->
+          <div class="l l--flat" style="--hl:-1326px;--ht:0px;--hw:3978px;--hh:823px;z-index:12">
+            <img class="mir" src="assets/hero/hero-bg.jpg" alt="" style="left:-198px">
+            <img src="assets/hero/hero-bg.jpg" alt="" style="left:1260px">
+            <img class="mir" src="assets/hero/hero-bg.jpg" alt="" style="left:2718px">
+          </div>
+
           <!-- the man — two poses cross-fade -->
           <img class="l man man--open" src="assets/hero/srk-02.png" alt="Brand ambassador welcoming you with open arms"
                style="--hl:-72px;--ht:112px;--hw:1457px;--hh:711px;--ax:-399px;--ay:0px;--ux:399px;--uy:0px;z-index:13">
@@ -72,22 +80,22 @@
                style="--hl:809px;--ht:158.99px;--hw:866.02px;--hh:1291.87px;--ax:0.00px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:0.00px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:13">
 
           <!-- uPVC copy -->
-          <div class="l copy copy--upvc" style="--hl:119px;--ht:137px;--hw:271px;--ax:-399.00px;--ay:0.00px;--ux:371.92px;--uy:0.00px;z-index:14">
-            <h2>Peace of<br>mind</h2>
+          <div class="l copy copy--upvc" style="--hl:14px;--ht:114px;--hw:271px;--ax:-399.00px;--ay:0.00px;--ux:476.92px;--uy:0.00px;z-index:14">
+            <h2><small>Peace of</small>mind</h2>
             <a class="hero-btn hero-btn--green" href="upvc.html" data-go="upvc">← uPVC Windows</a>
             <ul class="copy__list"><li>Sturdy</li><li>Weather-proof</li><li>Sound-proof</li></ul>
           </div>
 
           <!-- Aluminium copy -->
-          <div class="l copy copy--alu" style="--hl:948px;--ht:137px;--hw:271px;--ax:-402px;--ay:0.00px;--ux:396px;--uy:0.00px;z-index:15">
-            <h2>Piece of<br>art</h2>
+          <div class="l copy copy--alu" style="--hl:1034px;--ht:114px;--hw:271px;--ax:-488px;--ay:0.00px;--ux:310px;--uy:0.00px;z-index:15">
+            <h2><small>Piece of</small>art</h2>
             <a class="hero-btn hero-btn--navy" href="aluminium.html" data-go="alu">Aluminum Windows →</a>
             <ul class="copy__list"><li>Slim profiles</li><li>Sleek finish</li><li>Premium finish</li></ul>
           </div>
 
           <!-- decor, top-left -->
-          <div class="l l--decor" style="--hl:-127.41px;--ht:-135.85px;--hw:237.41px;--hh:329.82px;--ax:-399.01px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:399.01px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:17"><img src="assets/hero/image16.png" alt=""></div>
-          <img class="l l--decor-blur" src="assets/hero/image17.png" alt="" style="--hl:-147.02px;--ht:-119.82px;--hw:237.41px;--hh:329.82px;--ax:-399.01px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:399.02px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:16">
+          <div class="l l--decor" style="--hl:-168px;--ht:145px;--hw:196px;--hh:272px;--ax:-399.01px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:399.01px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:17"><img src="assets/hero/image16.png" alt=""></div>
+          <img class="l l--decor-blur" src="assets/hero/image17.png" alt="" style="--hl:-167px;--ht:148px;--hw:195px;--hh:272px;--ax:-399.01px;--ay:0.00px;--asx:1.0000;--asy:1.0000;--ux:399.02px;--uy:0.00px;--usx:1.0000;--usy:1.0000;z-index:16">
 
           <!-- aluminium proof points (aluminium state only) -->
           <p class="stat" style="left:881.66px;top:55.01px;width:274px;z-index:20"><span>6063-T6 Aluminium Alloy —</span> <b>Built Like a Vault</b></p>
