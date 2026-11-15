@@ -35,6 +35,7 @@
     }
     hero.style.height = Math.max(h, 420) + 'px';
     hero.style.setProperty('--k', k.toFixed(4));
+    hero.style.setProperty('--bz', (vw >= 900 ? Math.max(1, Math.min(1.4, (vw / Math.max(h, 1)) / (DESIGN_W / DESIGN_H)) * 0.9) : 1).toFixed(3));
     hero.style.setProperty('--ox', ox.toFixed(1) + 'px');
     hero.style.setProperty('--oy', '0px');
   }
