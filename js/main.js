@@ -191,23 +191,23 @@
   })();
 
   /* ------------------------------------------------- SHOWCASE */
-  // Stock photography (see assets/stock/CREDITS.txt). Swap in project photos any time.
+  // Stock photography Section photos live in assets/showcase/.
   var SETS = {
     alu: [
-      { t: 'Sliding doors',   d: 'Slim aluminium sliding doors that open a living room onto the patio.', img: 'assets/stock/alu-1.jpg', tone: '#6b5a4c' },
-      { t: 'Large windows',   d: 'Wide glazing that frames the view and floods the room with light.',    img: 'assets/stock/alu-2.jpg', tone: '#8a7a6a' },
-      { t: 'Living spaces',   d: 'Clean sightlines for bright, open living rooms.',                       img: 'assets/stock/alu-3.jpg', tone: '#8c6d4f' },
-      { t: 'Kitchen & dining',d: 'Natural light and easy access to outdoor spaces.',                      img: 'assets/stock/alu-4.jpg', tone: '#4d4a46' },
-      { t: 'Commercial glazing', d: 'Durable frames for entrances and façades.',                          img: 'assets/stock/alu-5.jpg', tone: '#3f3b38' },
-      { t: 'Home & work',     d: 'Bright, comfortable rooms for everyday life.',                          img: 'assets/stock/alu-6.jpg', tone: '#9b8e7e' }
+      { t: 'Grand entrance',   d: 'Slim aluminium frames that open a hall to the light.',            img: 'assets/showcase/alu-1.jpg', tone: '#6b5a58' },
+      { t: 'City views',       d: 'Floor-to-ceiling glazing that frames the skyline.',               img: 'assets/showcase/alu-2.jpg', tone: '#3d4a68' },
+      { t: 'Living spaces',    d: 'Clean sightlines for bright, open living rooms.',                 img: 'assets/showcase/alu-3.jpg', tone: '#7a4a48' },
+      { t: 'Sea-view sliders', d: 'Wide sliding doors that bring the horizon indoors.',              img: 'assets/showcase/alu-4.jpg', tone: '#b79a7a' },
+      { t: 'Garden access',    d: 'Large openings that connect rooms to the garden.',                img: 'assets/showcase/alu-5.jpg', tone: '#6f7a62' },
+      { t: 'Courtyard lounge', d: 'Seamless glass walls for calm, private courtyards.',              img: 'assets/showcase/alu-6.jpg', tone: '#4b4f52' }
     ],
     upvc: [
-      { t: 'Double-hung',     d: 'Classic double-hung uPVC windows with a clean, low-maintenance finish.', img: 'assets/stock/upvc-1.jpg', tone: '#7c8577' },
-      { t: 'Sash windows',    d: 'Traditional sash styling with modern thermal performance.',              img: 'assets/stock/upvc-2.jpg', tone: '#8d8b84' },
-      { t: 'Casement windows',d: 'Weather-tight casements that suit every kind of home.',                  img: 'assets/stock/upvc-3.jpg', tone: '#8c6d4f' },
-      { t: 'Decorative grille',d: 'uPVC frames paired with decorative security grilles.',                  img: 'assets/stock/upvc-4.jpg', tone: '#6c7177' },
-      { t: 'Country homes',   d: 'Comfortable, draught-free windows for older and newer homes alike.',     img: 'assets/stock/upvc-5.jpg', tone: '#a39a86' },
-      { t: 'Everyday living', d: 'Bright, quiet rooms all year round.',                                    img: 'assets/stock/upvc-6.jpg', tone: '#85766b' }
+      { t: 'Casement windows', d: 'Weather-tight uPVC casements with a clean, low-maintenance finish.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
+      { t: 'Sliding windows',  d: 'Smooth sliders that frame the view and save space.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
+      { t: 'Bedrooms',         d: 'Quiet, draught-free windows for restful rooms.',                   img: 'assets/showcase/upvc-3.jpg', tone: '#8c6d6a' },
+      { t: 'Dark finish',      d: 'Slim black-finish frames for a bolder look.',                      img: 'assets/showcase/upvc-4.jpg', tone: '#6c6573' },
+      { t: 'Wood-grain',       d: 'Warm wood-effect finishes with decorative glazing.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' },
+      { t: 'Sliding doors',    d: 'Bright, quiet living rooms that open onto the terrace.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' }
     ]
   };
   var track = document.getElementById('track');
