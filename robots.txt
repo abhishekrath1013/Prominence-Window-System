@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abhishekrath1013.github.io/Prominence-Window-System/sitemap.xml

@@ -1,0 +1,10 @@
+# Prominance Window Systems
+
+> Prominance Window Systems is the window and door brand of PWDS Extrusions Pvt Ltd, a Coimbatore (Tamil Nadu, India) manufacturer of multi-chambered uPVC and 6063-T6 aluminium windows and doors. Manufacturing since 2011; 22,000 MT annual capacity; profiles tested to EN 12608 and for 25,000+ hours of weather-ability; supplied and installed across 28 states and 860+ cities. Contact: 1800 833 4500 (toll-free), +91 9500895005.
+
+## Pages
+- [Home](https://abhishekrath1013.github.io/Prominence-Window-System/): Peace of mind (uPVC) or piece of art (aluminium).
+- [uPVC windows & doors](https://abhishekrath1013.github.io/Prominence-Window-System/upvc.html): multi-chambered uPVC; sturdy, weather-proof, sound-proof (up to 40 dB); 2.3-2.5 mm walls.
+- [Aluminium windows & doors](https://abhishekrath1013.github.io/Prominence-Window-System/aluminium.html): slim 6063-T6 profiles, sleek finish, 25-year warranty against surface corrosion.
+- [Products](https://abhishekrath1013.github.io/Prominence-Window-System/products.html): uPVC vs aluminium comparison and how to choose.
+- [About](https://abhishekrath1013.github.io/Prominence-Window-System/about.html): manufacturer story, factory, capabilities, address.
