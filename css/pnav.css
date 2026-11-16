@@ -1,0 +1,31 @@
+/* Prominance Window Systems navbar — injected into the aluminium / uPVC sub-sites so every page shares one navigation */
+.pnav, .pnav * { box-sizing: border-box; }
+header[data-header] { display: none !important; }       /* the sub-site's own header is replaced */
+.pnav {
+  position: fixed; inset: 0 0 auto 0; z-index: 400; height: 73px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,0) 100%);
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #fff;
+  transition: transform .45s cubic-bezier(.4,0,.2,1), background-color .3s ease, box-shadow .3s ease;
+}
+.pnav::before {
+  content: ''; position: absolute; inset: 0 0 -14px; z-index: -1; pointer-events: none;
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 100%); mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+}
+.pnav.is-solid { color: #454545; background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+.pnav.is-hidden { transform: translateY(-100%); }
+.pnav a { color: inherit; text-decoration: none; }
+.pnav__links { display: flex; gap: 16px; padding: 8px 16px; opacity: .92; }
+.pnav__links a { transition: opacity .2s; }
+.pnav__links a:hover { opacity: .6; }
+.pnav__logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); line-height: 0; }
+.pnav__logo img { width: 166px; height: 31px; object-fit: cover; display: block; filter: brightness(0) invert(1); transition: filter .3s; }
+.pnav.is-solid .pnav__logo img { filter: none; }
+.pnav__cta { width: 231px; height: 30px; display: flex; justify-content: flex-end; opacity: .85; transition: opacity .2s; }
+.pnav__cta:hover { opacity: 1; }
+.pnav__btn { display: flex; align-items: center; justify-content: center; height: 100%; padding: 0 16px; border: 1px solid rgba(255,255,255,.85); color: #fff; }
+.pnav.is-solid .pnav__btn { border-color: rgba(0,0,0,.72); color: #000; }
+@media (max-width: 900px) { .pnav { padding: 0 8px; } }
+@media (max-width: 560px) { .pnav__links { display: none; } .pnav { justify-content: flex-end; padding: 0 16px; } .pnav__logo { left: 16px; transform: translateY(-50%); } .pnav__cta { width: auto; } }
