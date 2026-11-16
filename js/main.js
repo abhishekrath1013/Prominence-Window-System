@@ -13,7 +13,7 @@
   /* ------------------------------------------------------- HERO */
   var hero = document.getElementById('hero');
   var DESIGN_W = 1326, DESIGN_H = 823;
-  var CAMERA_X = { home: 663, alu: 696, upvc: 630 };   // stage x kept centred when the viewport is narrower than the stage
+  var CAMERA_X = { home: 663, alu: 640, upvc: 700 };   // stage x kept centred when the viewport is narrower than the stage
   var state = 'home';
 
   // The whole stage always fits inside the viewport (nothing is cropped). On wide screens the
@@ -35,6 +35,9 @@
     }
     hero.style.height = Math.max(h, 420) + 'px';
     hero.style.setProperty('--k', k.toFixed(4));
+    var camEff = (vw / 2 - ox) / k;                                        // stage x at the centre of the screen
+    hero.style.setProperty('--lx', (camEff - vw / (2 * k)).toFixed(1) + 'px');   // screen's left edge, in stage px
+    hero.style.setProperty('--rx', (camEff + vw / (2 * k) - DESIGN_W).toFixed(1) + 'px');   // how far the screen's right edge is past the stage
     hero.style.setProperty('--bz', (vw >= 900 ? Math.max(1, Math.min(1.4, (vw / Math.max(h, 1)) / (DESIGN_W / DESIGN_H)) * 0.9) : 1).toFixed(3));
     hero.style.setProperty('--ox', ox.toFixed(1) + 'px');
     hero.style.setProperty('--oy', '0px');

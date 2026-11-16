@@ -655,19 +655,25 @@ html.intro .l--pano { animation: intro-pano 1.5s .15s cubic-bezier(.22,.7,.2,1) 
   translate: calc(var(--tx, 0px) * var(--bz, 1) * 1.3 + (1 - var(--bz, 1) * 1.3) * 1635px) calc((1 - var(--bz, 1) * 1.3) * 360px); } }
 
 /* white glass strip on the left edge in the aluminium scene (design: Rectangle 168×824, white 27%, background blur 16) */
-.astrip { left: calc(var(--ox, 0px) / var(--k, 1) * -1); top: 0; width: 168px; height: 823px; z-index: 12;
+.astrip { left: var(--lx, 0px); top: 0; width: 168px; height: 823px; z-index: 12;
   background: rgba(255,255,255,.27); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); pointer-events: none; }
 
 
 /* aluminium pose hangs off the left edge of the *screen*, whatever the screen width */
-.man--alu { left: calc(var(--hl) - var(--ox, 0px) / var(--k, 1)); }
+.man--alu { left: calc(var(--hl) + var(--lx, 0px)); }
 
 /* uPVC scene = mirror image of the aluminium scene: panel on the left, SRK hanging off the right edge of the screen */
-.man--upvc { left: calc(var(--hl) + var(--ox, 0px) / var(--k, 1)); }
-.astrip--r { left: calc(1158px + var(--ox, 0px) / var(--k, 1)); }
+.man--upvc { left: calc(var(--hl) + var(--rx, 0px)); }
+.astrip--r { left: calc(1158px + var(--rx, 0px)); }
 .apanel--l { color: #454545; background: rgba(255,255,255,.3); }
 .apanel--l h3 { color: #3f3f3f; }
 .apanel--l .apanel__item h4 { color: #3a3a3a; }
 .apanel--l .apanel__item p { color: rgba(0,0,0,.62); }
 .apanel--l .apanel__item img { filter: brightness(0); opacity: .55; }
 .apanel--l h3 { left: 947px; }
+
+/* phones: SRK hangs further off the edge so he never covers the headline */
+@media (max-width: 900px) {
+  .man--alu  { left: calc(var(--hl) + var(--lx, 0px) - 120px); }
+  .man--upvc { left: calc(var(--hl) + var(--rx, 0px) + 120px); }
+}
