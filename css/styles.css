@@ -674,6 +674,12 @@ html.intro .l--pano { animation: intro-pano 1.5s .15s cubic-bezier(.22,.7,.2,1) 
 
 /* phones: SRK hangs further off the edge so he never covers the headline */
 @media (max-width: 900px) {
-  .man--alu  { left: calc(var(--hl) + var(--lx, 0px) - 120px); }
-  .man--upvc { left: calc(var(--hl) + var(--rx, 0px) + 120px); }
+  .man--alu, .man--upvc { display: none; }                         /* side slides on phones: text only, no SRK */
+  /* home slide: smaller SRK, with both headlines pulled in to the left and right edges */
+  .man--open { left: 316px; top: 376px; width: 676px; height: 447px; }
+  [data-state="home"] .copy { --sx: .62; --sy: .62; }
+  .copy--upvc { transform-origin: 100% 0; }
+  .copy--alu  { transform-origin: 0 0; }
+  [data-text="home"] .copy--upvc { left: calc(var(--lx, 0px) + 14px + 168px - 271px); }
+  [data-text="home"] .copy--alu  { left: calc(var(--rx, 0px) + 1326px - 14px - 168px); }
 }
