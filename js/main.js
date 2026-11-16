@@ -63,7 +63,7 @@
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
   var tip = document.getElementById('tip');
 
-  var PAGES = { alu: 'aluminium.html', upvc: 'upvc.html' };
+  var PAGES = { alu: 'aluminium-windows/', upvc: 'upvc-windows/' };
   var lastChange = 0;
 
   hero.addEventListener('pointermove', function (e) {
