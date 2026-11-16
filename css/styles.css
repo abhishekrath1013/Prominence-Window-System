@@ -508,7 +508,7 @@ main > section:not(.hero) { position: relative; z-index: 1; }
   border-radius: calc(var(--s) * 30px);
 }
 .explore__bg img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 70%;
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%;
   transform: scale(calc(1.16 - var(--s) * .16));
   filter: blur(calc(var(--s) * 16px));
   transform-origin: 50% 50%;
