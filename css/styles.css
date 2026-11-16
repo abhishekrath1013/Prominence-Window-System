@@ -194,14 +194,14 @@ main > section:not(.hero) { position: relative; z-index: 1; }
 .hero-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 .copy__list { margin-top: 2px; font-weight: 300; font-size: 22px; line-height: 33px; color: var(--ink); letter-spacing: -.2px; }
 [data-text="alu"] .copy--upvc, [data-text="upvc"] .copy--alu { pointer-events: none; }
-[data-text="home"] .copy__list, [data-text="alu"] .copy__list { display: none; }
+[data-text="home"] .copy__list, [data-text="alu"] .copy__list, [data-text="upvc"] .copy__list { display: none; }
 
 /* Text never slides. When the state changes JS first fades ALL text out (.txt-out), then — while it is
    invisible — switches data-text, which re-places the text, then fades it back in. */
 .copy, .stat { transition: opacity .4s ease; translate: var(--tx, 0px) var(--ty, 0px); }
 [data-text="home"] .copy { --tx: 0px; --ty: 0px; }
 [data-text="alu"]  .copy--alu  { --tx: var(--ax, 0px); --ty: var(--ay, 0px); }
-[data-text="upvc"] .copy--upvc { --tx: var(--ux, 0px); --ty: 0px; }
+[data-text="upvc"] .copy--upvc { --tx: var(--ux, 0px); --ty: var(--uy, 0px); }
 [data-text="alu"]  .copy--upvc { --tx: var(--ax, 0px); opacity: 0; }
 [data-text="upvc"] .copy--alu  { --tx: var(--ux, 0px); opacity: 0; }
 .hero.txt-out .copy, .hero.txt-out .stat { opacity: 0 !important; }
@@ -215,7 +215,7 @@ main > section:not(.hero) { position: relative; z-index: 1; }
 }
 .stat span { font-weight: 400; }
 .stat b { font-weight: 700; }
-[data-text="alu"] .stat { opacity: 1; }
+[data-text="alu"] .stat--alu, [data-text="upvc"] .stat--upvc { opacity: 1; }
 
 /* small-screen / touch switch */
 .hero__switch {
@@ -661,3 +661,13 @@ html.intro .l--pano { animation: intro-pano 1.5s .15s cubic-bezier(.22,.7,.2,1) 
 
 /* aluminium pose hangs off the left edge of the *screen*, whatever the screen width */
 .man--alu { left: calc(var(--hl) - var(--ox, 0px) / var(--k, 1)); }
+
+/* uPVC scene = mirror image of the aluminium scene: panel on the left, SRK hanging off the right edge of the screen */
+.man--upvc { left: calc(var(--hl) + var(--ox, 0px) / var(--k, 1)); }
+.astrip--r { left: calc(1158px + var(--ox, 0px) / var(--k, 1)); }
+.apanel--l { color: #454545; background: rgba(255,255,255,.3); }
+.apanel--l h3 { color: #3f3f3f; }
+.apanel--l .apanel__item h4 { color: #3a3a3a; }
+.apanel--l .apanel__item p { color: rgba(0,0,0,.62); }
+.apanel--l .apanel__item img { filter: brightness(0); opacity: .55; }
+.apanel--l h3 { left: 947px; }
