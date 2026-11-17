@@ -3,7 +3,9 @@
   var h = document.getElementById('nav') || document.getElementById('pnav');
   if (!h) return;
   var p = h.id === 'pnav' ? '../' : '';
-  var items = [['About', p + 'about.html'], ['Why us', p + 'index.html#why'], ['Products', p + 'products.html'], ['uPVC windows', p + 'upvc-windows/'], ['Aluminium windows', p + 'aluminium-windows/']];
+  var SUBSITES_LIVE = false;   // Aluminium / uPVC sub-sites are hidden for now
+  var items = [['About', p + 'about.html'], ['Why us', p + 'index.html#why'], ['Products', p + 'products.html']];
+  if (SUBSITES_LIVE) items.push(['uPVC windows', p + 'upvc-windows/'], ['Aluminium windows', p + 'aluminium-windows/']);
   h.classList.add('has-nm');
   var b = document.createElement('button');
   b.type = 'button'; b.className = 'nm__btn'; b.setAttribute('aria-label', 'Open menu'); b.setAttribute('aria-expanded', 'false'); b.innerHTML = '<i></i><i></i><i></i>';

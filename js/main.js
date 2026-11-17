@@ -66,11 +66,14 @@
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
   var tip = document.getElementById('tip');
 
+  // The Aluminium and uPVC sub-sites are hidden for now. Set to true to turn them on (buttons, redirect and menu links).
+  var SUBSITES_LIVE = false;
   var PAGES = { alu: 'aluminium-windows/', upvc: 'upvc-windows/' };
+  if (SUBSITES_LIVE) Array.prototype.forEach.call(document.querySelectorAll('[data-href]'), function (a) { a.setAttribute('href', a.getAttribute('data-href')); });
   var lastChange = 0;
 
   hero.addEventListener('pointermove', function (e) {
-    if (e.pointerType !== 'mouse' || !canHover.matches) { hero.classList.remove('has-tip'); return; }
+    if (e.pointerType !== 'mouse' || !canHover.matches || (!SUBSITES_LIVE && state !== 'home')) { hero.classList.remove('has-tip'); return; }
     tip.style.transform = 'translate(' + (e.clientX + 16) + 'px,' + (e.clientY + 16) + 'px)';
     var r = hero.getBoundingClientRect();
     var side = state !== 'home' ? state : (e.clientX - r.left >= r.width / 2 ? 'alu' : 'upvc');
@@ -86,13 +89,13 @@
     var recent = Date.now() - lastChange < 1200;          // ignore clicks while the pan is still running
     if (t) {
       var go = t.getAttribute('data-go');
-      if (t.tagName === 'A' && state === go) { if (recent) e.preventDefault(); return; }   // open → follow the link
+      if (t.tagName === 'A' && state === go) { if (recent || !SUBSITES_LIVE) e.preventDefault(); return; }   // open → follow the link (when live)
       if (t.tagName === 'A') e.preventDefault();
       setState(go);
     } else if (state === 'home') {
       var r = hero.getBoundingClientRect();
       setState(e.clientX - r.left < r.width / 2 ? 'upvc' : 'alu');
-    } else if (!recent) {
+    } else if (!recent && SUBSITES_LIVE) {
       window.location.href = PAGES[state];
     }
     hero.classList.remove('has-tip');
@@ -145,7 +148,7 @@
     if (reduce) { explore.classList.add('is-ready'); return; }
     var r = explore.getBoundingClientRect(), total = Math.max(1, r.height - window.innerHeight);
     var t = Math.max(0, Math.min(1, -r.top / total));
-    var sv = Math.max(0, Math.min(1, t / 0.5));                 // the picture zooms out / shrinks / blurs
+    var sv = Math.max(0, Math.min(1, t / 0.42));                 // the picture zooms out / shrinks / blurs
     explore.style.setProperty('--s', sv.toFixed(3));
     if (sv >= 0.985) {                                          // once it has settled, all pointers pop together after a short beat
       if (!explore.classList.contains('is-ready') && !readyT) readyT = setTimeout(function () { explore.classList.add('is-ready'); readyT = null; }, 260);
@@ -198,20 +201,20 @@
   // Stock photography Section photos live in assets/showcase/.
   var SETS = {
     alu: [
-      { t: 'Grand entrance',   d: 'Slim aluminium frames that open a hall to the light.',            img: 'assets/showcase/alu-1.jpg', tone: '#6b5a58' },
-      { t: 'City views',       d: 'Floor-to-ceiling glazing that frames the skyline.',               img: 'assets/showcase/alu-2.jpg', tone: '#3d4a68' },
-      { t: 'Living spaces',    d: 'Clean sightlines for bright, open living rooms.',                 img: 'assets/showcase/alu-3.jpg', tone: '#7a4a48' },
-      { t: 'Sea-view sliders', d: 'Wide sliding doors that bring the horizon indoors.',              img: 'assets/showcase/alu-4.jpg', tone: '#b79a7a' },
-      { t: 'Garden access',    d: 'Large openings that connect rooms to the garden.',                img: 'assets/showcase/alu-5.jpg', tone: '#6f7a62' },
-      { t: 'Courtyard lounge', d: 'Seamless glass walls for calm, private courtyards.',              img: 'assets/showcase/alu-6.jpg', tone: '#4b4f52' }
+      { t: 'Sliding windows & doors', d: 'Slender aluminium profiles and smooth operation for more glass, more light and clean lines.', img: 'assets/showcase/alu-1.jpg', tone: '#6f7a62' },
+      { t: 'Casement windows',        d: 'Slim sightlines that maximise natural light while holding structural integrity.',           img: 'assets/showcase/alu-2.jpg', tone: '#8a7a6a' },
+      { t: 'Fold & slide doors',      d: 'Fold the whole wall away — openings up to 2.4 metres, indoors meeting the garden.',         img: 'assets/showcase/alu-3.jpg', tone: '#7a8a6a' },
+      { t: 'Bay windows',             d: 'Panoramic views, cross-ventilation and extended sills in a single bold frame.',             img: 'assets/showcase/alu-4.jpg', tone: '#9b8e7e' },
+      { t: 'Panoramic sliding',       d: 'Frames concealed on every side, so the landscape takes over the room.',                     img: 'assets/showcase/alu-5.jpg', tone: '#5d6f55' },
+      { t: 'Heavy-duty sliding',      d: 'Oversized glass that glides effortlessly — built for large, expansive openings.',           img: 'assets/showcase/alu-6.jpg', tone: '#8c6d4f' }
     ],
     upvc: [
-      { t: 'Casement windows', d: 'Weather-tight uPVC casements with a clean, low-maintenance finish.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
-      { t: 'Sliding windows',  d: 'Smooth sliders that frame the view and save space.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
-      { t: 'Bedrooms',         d: 'Quiet, draught-free windows for restful rooms.',                   img: 'assets/showcase/upvc-3.jpg', tone: '#8c6d6a' },
-      { t: 'Dark finish',      d: 'Slim black-finish frames for a bolder look.',                      img: 'assets/showcase/upvc-4.jpg', tone: '#6c6573' },
-      { t: 'Wood-grain',       d: 'Warm wood-effect finishes with decorative glazing.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' },
-      { t: 'Sliding doors',    d: 'Bright, quiet living rooms that open onto the terrace.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' }
+      { t: 'Casement windows',   d: 'The tightest seal of any window style — made for busy roads and noisy neighbourhoods.',             img: 'assets/showcase/upvc-1.jpg', tone: '#7c8577' },
+      { t: 'Sliding windows',    d: 'Nothing swings into the room. Space-saving sliders for balconies, kitchens and wide openings.',      img: 'assets/showcase/upvc-2.jpg', tone: '#8d8b84' },
+      { t: 'Tilt & turn windows', d: 'Tilt for secure ventilation, or turn fully open to clean the outside glass from indoors.',          img: 'assets/showcase/upvc-3.jpg', tone: '#8c8a7c' },
+      { t: 'Casement doors',     d: 'Our most weather-tight door — for balconies, main entries and utility openings.',                    img: 'assets/showcase/upvc-4.jpg', tone: '#a39a86' },
+      { t: 'Sliding doors',      d: 'Large glass panels flood rooms with daylight and open straight onto the balcony or garden.',         img: 'assets/showcase/upvc-5.jpg', tone: '#85766b' },
+      { t: 'Slide & fold doors', d: 'A full 100% opening, so indoors and outdoors merge into one room.',                                  img: 'assets/showcase/upvc-6.jpg', tone: '#6c7177' }
     ]
   };
   var track = document.getElementById('track');

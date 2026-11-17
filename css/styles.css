@@ -493,7 +493,7 @@ main > section:not(.hero) { position: relative; z-index: 1; }
 /* ---------------------------------------------------------
    EXPLORE — pinned factory image that shrinks, blurs and pops in the pointers
    --------------------------------------------------------- */
-.explore { --s: 0; height: 270vh; background: #f0f3f2; }
+.explore { --s: 0; height: 190vh; background: #f0f3f2; }
 .explore__pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
 .explore__bg {
   --wf: min(1180px, 89vw);                       /* final width of the picture */
@@ -554,7 +554,7 @@ main > section:not(.hero) { position: relative; z-index: 1; }
 .explore__card.is-swap .explore__txt, .explore__card.is-swap .explore__img { opacity: 0; }
 
 @media (max-width: 800px) {
-  .explore { height: 260vh; }
+  .explore { height: 190vh; }
   .explore__bg { --wf: 92vw; --hf: 86vh; }
   .explore__tabs { gap: 8px; }
   .explore__tab { width: 44px; height: 44px; border-radius: 10px; }
@@ -683,3 +683,9 @@ html.intro .l--pano { animation: intro-pano 1.5s .15s cubic-bezier(.22,.7,.2,1) 
   [data-text="home"] .copy--upvc { left: calc(var(--lx, 0px) + 14px + 168px - 271px); }
   [data-text="home"] .copy--alu  { left: calc(var(--rx, 0px) + 1326px - 14px - 168px); }
 }
+
+/* glass panels: content block is centred in the visible glass, so the space left and right of it is equal */
+.apanel { width: calc(523px + var(--rx, 0px)); }
+.apanel--l { left: var(--lx, 0px) !important; width: calc(523px - var(--lx, 0px)); }
+.apanel__in { position: absolute; left: 50%; top: 0; width: 476px; height: 100%; transform: translateX(-50%); }
+.apanel h3, .apanel--l h3 { left: 0; top: 112px; font-weight: 600; font-size: 58px; line-height: 56px; letter-spacing: -.3px; }

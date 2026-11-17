@@ -331,3 +331,29 @@ ol { list-style: none; margin: 0; padding: 0; }
 .ihero--right .btn--ghost { color: #fff; border-color: rgba(255,255,255,.65); }
 .ihero--right .btn--ghost:hover { background: rgba(255,255,255,.12); }
 .ihero--right .eyebrow-l { color: rgba(255,255,255,.88); }
+
+/* video / dark heroes (About, Products): mild black overlay, white copy */
+.ihero--dark { color: #f6f6f6; background: #1b1b1f; }
+.ihero--dark .ihero__shade { background: linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.5) 48%, rgba(0,0,0,.28) 100%); }
+.ihero--dark h1 { color: #fff; }
+.ihero--dark .lead { color: rgba(255,255,255,.88); }
+.ihero--dark .crumbs ol { color: rgba(255,255,255,.75); }
+.ihero--dark .eyebrow-l { color: rgba(255,255,255,.88); }
+.ihero--dark .btn--ghost { color: #fff; border-color: rgba(255,255,255,.65); }
+.ihero--dark .btn--ghost:hover { background: rgba(255,255,255,.12); }
+.ihero__vid { object-fit: cover; animation: none; transform: none; filter: brightness(1.2); }
+.ihero--oneline h1 { font-size: clamp(30px, 4.2vw, 58px); letter-spacing: -1.4px; }
+.ihero--oneline .ihero__copy { max-width: none; }
+@media (min-width: 901px) { .ihero--oneline h1 { white-space: nowrap; } }
+.ihero--oneline .lead { max-width: 36em; }
+@media (prefers-reduced-motion: reduce) { .ihero__vid { display: none; } .ihero--dark { background: #1b1b1f url('../assets/video/hero-default.jpg') center / cover; } }
+
+/* products: choose-this-if cards — white box, grey stroke; only the button carries the system colour */
+.pick__card { background: #fff !important; color: var(--ink-1); border: 1px solid #d3d8d7; }
+.pick__card--upvc, .pick__card--alu { background: #fff !important; }
+.pick__card .eyebrow-l { color: var(--ink-3); }
+.pick__card li { color: var(--ink-2); }
+.pick__card li::before { color: var(--ink-3); opacity: 1; }
+.pick__card .btn { box-shadow: 0 4px 4px rgba(0,0,0,.25); color: #fff; }
+.pick__card--upvc .btn { background: linear-gradient(106deg, #419f49 0%, #2a7166 100%); }
+.pick__card--alu .btn { background: linear-gradient(80deg, #4e4e5c 0%, #879092 100%); }
