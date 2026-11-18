@@ -281,17 +281,17 @@
 
   /* ------------------------------------------------ ACCORDION */
   var ITEMS = [
-    { i: 'eye', t: 'You dream it. We craft it.', tone: '#a98d74', img: 'assets/showcase/upvc-5.jpg',
+    { i: 'eye', t: 'You dream it. We craft it.', tone: '#a98d74', img: 'assets/explore/x1.jpg',
       p: 'Custom-engineered windows and doors tailored to match your vision.' },
-    { i: 'medal', t: 'Excellence meets endurance.', tone: '#9a8f84', img: 'assets/infra/infra-3.png',
+    { i: 'medal', t: 'Excellence meets endurance.', tone: '#9a8f84', img: 'assets/explore/x2.jpg',
       p: 'Precision-built aluminium frames designed for quality and robustness.' },
-    { i: 'cart', t: 'Anything. And everything.', tone: '#8d9a94', img: 'assets/showcase/alu-3.jpg',
+    { i: 'cart', t: 'Anything. And everything.', tone: '#8d9a94', img: 'assets/explore/x3.jpg',
       p: 'A comprehensive lineup of impressive styles and finishes.' },
-    { i: 'smile', t: 'Stellar service, start to finish.', tone: '#a1998c', img: 'assets/showcase/upvc-6.jpg',
+    { i: 'smile', t: 'Stellar service, start to finish.', tone: '#a1998c', img: 'assets/explore/x4.jpg',
       p: 'Seamless execution from initial measurement to installation.' },
-    { i: 'guide', t: 'Be guided by pros.', tone: '#8f94a0', img: 'assets/showcase/alu-2.jpg',
+    { i: 'guide', t: 'Be guided by pros.', tone: '#8f94a0', img: 'assets/explore/x5.jpg',
       p: 'Expert advice to help you pick the perfect windows.' },
-    { i: 'chat', t: 'Solid support. Now and forever.', tone: '#a39382', img: 'assets/showcase/upvc-3.jpg',
+    { i: 'chat', t: 'Solid support. Now and forever.', tone: '#a39382', img: 'assets/explore/x6.jpg',
       p: 'Dependable after-sales care and responsive service beyond installation.' }
   ];
   /* ---- explore: pointers (tabs) switch the card */

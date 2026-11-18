@@ -1,3 +1,5 @@
 Stock videos (Mixkit Free Stock Video License — free for commercial use, no attribution required)
 - mk-21669: man opening curtains to daylight — https://mixkit.co/free-stock-video/curtain/
 - mk-22033: workers in a large electronics factory floor — https://mixkit.co/free-stock-video/working-in-a-electronics-factory-22033/
+
+- assets/explore/x1-x6: Pexels free photos (ids 6583358, 5691515, 2245418, 5691521, 7641859, 6560572) - Pexels License
