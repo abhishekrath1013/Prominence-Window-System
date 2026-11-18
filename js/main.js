@@ -72,16 +72,19 @@
   if (SUBSITES_LIVE) Array.prototype.forEach.call(document.querySelectorAll('[data-href]'), function (a) { a.setAttribute('href', a.getAttribute('data-href')); });
   var lastChange = 0;
 
+  // Hover to explore (mouse / trackpad): moving towards the left or right of the hero slides the scene to that side,
+  // moving back towards the middle returns to the home view. A short intent delay stops it flickering.
+  var hoverT = null;
   hero.addEventListener('pointermove', function (e) {
-    if (e.pointerType !== 'mouse' || !canHover.matches || (!SUBSITES_LIVE && state !== 'home')) { hero.classList.remove('has-tip'); return; }
-    tip.style.transform = 'translate(' + (e.clientX + 16) + 'px,' + (e.clientY + 16) + 'px)';
-    var r = hero.getBoundingClientRect();
-    var side = state !== 'home' ? state : (e.clientX - r.left >= r.width / 2 ? 'alu' : 'upvc');
-    tip.classList.toggle('is-alu', side === 'alu');
-    tip.classList.toggle('is-upvc', side === 'upvc');
-    hero.classList.add('has-tip');
+    if (e.pointerType !== 'mouse' || !canHover.matches) return;
+    var r = hero.getBoundingClientRect(), f = (e.clientX - r.left) / r.width, want;
+    if (state === 'home') want = f < 0.3 ? 'upvc' : (f > 0.7 ? 'alu' : 'home');
+    else if (state === 'upvc') want = f > 0.55 ? 'home' : 'upvc';
+    else want = f < 0.45 ? 'home' : 'alu';
+    clearTimeout(hoverT);
+    if (want !== state) hoverT = setTimeout(function () { setState(want); }, Math.max(170, 1050 - (Date.now() - lastChange)));
   }, { passive: true });
-  hero.addEventListener('pointerleave', function () { hero.classList.remove('has-tip'); });
+  hero.addEventListener('pointerleave', function () { clearTimeout(hoverT); });
 
   // First click opens a side; once it is open a click anywhere in the hero continues to that system's page.
   hero.addEventListener('click', function (e) {
@@ -148,7 +151,7 @@
     if (reduce) { explore.classList.add('is-ready'); return; }
     var r = explore.getBoundingClientRect(), total = Math.max(1, r.height - window.innerHeight);
     var t = Math.max(0, Math.min(1, -r.top / total));
-    var sv = Math.max(0, Math.min(1, t / 0.42));                 // the picture zooms out / shrinks / blurs
+    var sv = Math.max(0, Math.min(1, t / 0.5));                 // the picture zooms out / shrinks / blurs
     explore.style.setProperty('--s', sv.toFixed(3));
     if (sv >= 0.985) {                                          // once it has settled, all pointers pop together after a short beat
       if (!explore.classList.contains('is-ready') && !readyT) readyT = setTimeout(function () { explore.classList.add('is-ready'); readyT = null; }, 260);
@@ -201,20 +204,20 @@
   // Stock photography Section photos live in assets/showcase/.
   var SETS = {
     alu: [
-      { t: 'Sliding windows & doors', d: 'Slender aluminium profiles and smooth operation for more glass, more light and clean lines.', img: 'assets/showcase/alu-1.jpg', tone: '#6f7a62' },
-      { t: 'Casement windows',        d: 'Slim sightlines that maximise natural light while holding structural integrity.',           img: 'assets/showcase/alu-2.jpg', tone: '#8a7a6a' },
-      { t: 'Fold & slide doors',      d: 'Fold the whole wall away — openings up to 2.4 metres, indoors meeting the garden.',         img: 'assets/showcase/alu-3.jpg', tone: '#7a8a6a' },
-      { t: 'Bay windows',             d: 'Panoramic views, cross-ventilation and extended sills in a single bold frame.',             img: 'assets/showcase/alu-4.jpg', tone: '#9b8e7e' },
-      { t: 'Panoramic sliding',       d: 'Frames concealed on every side, so the landscape takes over the room.',                     img: 'assets/showcase/alu-5.jpg', tone: '#5d6f55' },
-      { t: 'Heavy-duty sliding',      d: 'Oversized glass that glides effortlessly — built for large, expansive openings.',           img: 'assets/showcase/alu-6.jpg', tone: '#8c6d4f' }
+      { t: 'Grand entrance',   d: 'Slim aluminium frames that open a hall to the light.',            img: 'assets/showcase/alu-1.jpg', tone: '#6b5a58' },
+      { t: 'City views',       d: 'Floor-to-ceiling glazing that frames the skyline.',               img: 'assets/showcase/alu-2.jpg', tone: '#3d4a68' },
+      { t: 'Living spaces',    d: 'Clean sightlines for bright, open living rooms.',                 img: 'assets/showcase/alu-3.jpg', tone: '#7a4a48' },
+      { t: 'Sea-view sliders', d: 'Wide sliding doors that bring the horizon indoors.',              img: 'assets/showcase/alu-4.jpg', tone: '#b79a7a' },
+      { t: 'Garden access',    d: 'Large openings that connect rooms to the garden.',                img: 'assets/showcase/alu-5.jpg', tone: '#6f7a62' },
+      { t: 'Courtyard lounge', d: 'Seamless glass walls for calm, private courtyards.',              img: 'assets/showcase/alu-6.jpg', tone: '#4b4f52' }
     ],
     upvc: [
-      { t: 'Casement windows',   d: 'The tightest seal of any window style — made for busy roads and noisy neighbourhoods.',             img: 'assets/showcase/upvc-1.jpg', tone: '#7c8577' },
-      { t: 'Sliding windows',    d: 'Nothing swings into the room. Space-saving sliders for balconies, kitchens and wide openings.',      img: 'assets/showcase/upvc-2.jpg', tone: '#8d8b84' },
-      { t: 'Tilt & turn windows', d: 'Tilt for secure ventilation, or turn fully open to clean the outside glass from indoors.',          img: 'assets/showcase/upvc-3.jpg', tone: '#8c8a7c' },
-      { t: 'Casement doors',     d: 'Our most weather-tight door — for balconies, main entries and utility openings.',                    img: 'assets/showcase/upvc-4.jpg', tone: '#a39a86' },
-      { t: 'Sliding doors',      d: 'Large glass panels flood rooms with daylight and open straight onto the balcony or garden.',         img: 'assets/showcase/upvc-5.jpg', tone: '#85766b' },
-      { t: 'Slide & fold doors', d: 'A full 100% opening, so indoors and outdoors merge into one room.',                                  img: 'assets/showcase/upvc-6.jpg', tone: '#6c7177' }
+      { t: 'Casement windows', d: 'Weather-tight uPVC casements with a clean, low-maintenance finish.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
+      { t: 'Sliding windows',  d: 'Smooth sliders that frame the view and save space.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
+      { t: 'Bedrooms',         d: 'Quiet, draught-free windows for restful rooms.',                   img: 'assets/showcase/upvc-3.jpg', tone: '#8c6d6a' },
+      { t: 'Dark finish',      d: 'Slim black-finish frames for a bolder look.',                      img: 'assets/showcase/upvc-4.jpg', tone: '#6c6573' },
+      { t: 'Wood-grain',       d: 'Warm wood-effect finishes with decorative glazing.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' },
+      { t: 'Sliding doors',    d: 'Bright, quiet living rooms that open onto the terrace.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' }
     ]
   };
   var track = document.getElementById('track');
@@ -278,18 +281,18 @@
 
   /* ------------------------------------------------ ACCORDION */
   var ITEMS = [
-    { i: 'eye',   t: 'Tailored to your dream', tone: '#a98d74',
-      p: 'We create tailored solutions that perfectly match your style, needs, and preferences, bringing your vision to life. Every detail is thoughtfully designed around you. Quality materials bring lasting comfort and beauty. Our team guides you from concept to completion. Together, we create a space that feels like home.' },
-    { i: 'medal', t: 'Quality & Durability', tone: '#9a8f84',
-      p: 'Precision-engineered profiles and rigorous testing keep every window performing as new, year after year.' },
-    { i: 'cart',  t: 'Comprehensive Offerings', tone: '#8d9a94',
-      p: 'uPVC and aluminium windows and doors in a wide range of configurations, finishes and glazing options.' },
-    { i: 'smile', t: 'Seamless Experience', tone: '#a1998c',
-      p: 'From first call to final fit, one team handles measurement, manufacture and installation.' },
-    { i: 'guide', t: 'Expert Guidance at Every Step', tone: '#8f94a0',
-      p: 'Our specialists help you compare systems and choose what fits your home, climate and budget.' },
-    { i: 'chat',  t: 'Exceptional Support', tone: '#a39382',
-      p: 'Responsive after-sales service and a dedicated helpline whenever you need us.' }
+    { i: 'eye',   t: 'Tailored to your dream', tone: '#a98d74', img: 'assets/showcase/upvc-5.jpg',
+      p: 'Every window is made to measure. Choose the style — casement, sliding, tilt & turn or slide & fold — then the glazing and the finish, from classic white to wood-grain laminates backed by a 20-year warranty.' },
+    { i: 'medal', t: 'Quality & Durability', tone: '#9a8f84', img: 'assets/infra/infra-3.png',
+      p: 'Lead-free, multi-chambered profiles with 2.3–2.5 mm walls, 1.5 mm galvanised steel and fusion-welded corners — tested for 25,000+ hours by SKZ Germany and certified by BSI UK.' },
+    { i: 'cart',  t: 'Comprehensive Offerings', tone: '#8d9a94', img: 'assets/showcase/alu-3.jpg',
+      p: 'uPVC and aluminium windows and doors in one place: casement, sliding, tilt & turn, slide & fold, bay and panoramic systems, with single, double or triple glazing.' },
+    { i: 'smile', t: 'Seamless Experience', tone: '#a1998c', img: 'assets/showcase/upvc-6.jpg',
+      p: 'One team from first call to final fit — site measurement, manufacture at our Coimbatore plant and installation — so you deal with one partner, not many.' },
+    { i: 'guide', t: 'Expert Guidance at Every Step', tone: '#8f94a0', img: 'assets/showcase/alu-2.jpg',
+      p: 'Our specialists help you compare uPVC and aluminium room by room — noise, heat, security and views — and choose what fits your home, climate and budget.' },
+    { i: 'chat',  t: 'Exceptional Support', tone: '#a39382', img: 'assets/showcase/upvc-3.jpg',
+      p: 'Responsive after-sales service and a dedicated helpline — 1800 833 4500 — whenever you need us.' }
   ];
   /* ---- explore: pointers (tabs) switch the card */
   var xtabs = document.getElementById('xtabs'), xcard = document.getElementById('xcard');
@@ -302,7 +305,7 @@
       document.getElementById('xtitle').textContent = ITEMS[n].t;
       document.getElementById('xdesc').textContent = ITEMS[n].p;
       var im = document.getElementById('ximg');
-      im.style.backgroundImage = 'url(assets/stock/acc-' + (n + 1) + '.jpg)'; im.setAttribute('aria-label', ITEMS[n].t);
+      im.style.backgroundImage = 'url(' + ITEMS[n].img + ')'; im.setAttribute('aria-label', ITEMS[n].t);
       xcard.classList.remove('is-swap');
     }, 180);
   }

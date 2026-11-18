@@ -341,12 +341,12 @@ ol { list-style: none; margin: 0; padding: 0; }
 .ihero--dark .eyebrow-l { color: rgba(255,255,255,.88); }
 .ihero--dark .btn--ghost { color: #fff; border-color: rgba(255,255,255,.65); }
 .ihero--dark .btn--ghost:hover { background: rgba(255,255,255,.12); }
-.ihero__vid { object-fit: cover; animation: none; transform: none; filter: brightness(1.2); }
+.ihero__vid { object-fit: cover; animation: none; transform: none; filter: none; }
 .ihero--oneline h1 { font-size: clamp(30px, 4.2vw, 58px); letter-spacing: -1.4px; }
 .ihero--oneline .ihero__copy { max-width: none; }
 @media (min-width: 901px) { .ihero--oneline h1 { white-space: nowrap; } }
 .ihero--oneline .lead { max-width: 36em; }
-@media (prefers-reduced-motion: reduce) { .ihero__vid { display: none; } .ihero--dark { background: #1b1b1f url('../assets/video/hero-default.jpg') center / cover; } }
+@media (prefers-reduced-motion: reduce) { .ihero__vid { display: none; } .ihero--dark { background: #1b1b1f url('../assets/video/mk-21669.jpg') center / cover; } }
 
 /* products: choose-this-if cards — white box, grey stroke; only the button carries the system colour */
 .pick__card { background: #fff !important; color: var(--ink-1); border: 1px solid #d3d8d7; }
@@ -357,3 +357,9 @@ ol { list-style: none; margin: 0; padding: 0; }
 .pick__card .btn { box-shadow: 0 4px 4px rgba(0,0,0,.25); color: #fff; }
 .pick__card--upvc .btn { background: linear-gradient(106deg, #419f49 0%, #2a7166 100%); }
 .pick__card--alu .btn { background: linear-gradient(80deg, #4e4e5c 0%, #879092 100%); }
+
+/* inner pages: a white strip behind the navigation so it is always readable */
+.nav { background: rgba(255, 255, 255, .97); color: #454545; box-shadow: 0 1px 0 rgba(0, 0, 0, .07); }
+.nav::before { display: none; }
+.nav__cta { opacity: 1; }
+.nav__links { opacity: .9; }
