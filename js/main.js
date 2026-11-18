@@ -212,12 +212,12 @@
       { t: 'Eco-friendly', d: '100% recyclable material retains structural integrity without compromising on quality.', img: 'assets/showcase/alu-6.jpg', tone: '#4b4f52' }
     ],
     upvc: [
-      { t: 'Casement windows', d: 'Weather-tight uPVC casements with a clean, low-maintenance finish.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
-      { t: 'Sliding windows',  d: 'Smooth sliders that frame the view and save space.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
-      { t: 'Bedrooms',         d: 'Quiet, draught-free windows for restful rooms.',                   img: 'assets/showcase/upvc-3.jpg', tone: '#8c6d6a' },
-      { t: 'Dark finish',      d: 'Slim black-finish frames for a bolder look.',                      img: 'assets/showcase/upvc-4.jpg', tone: '#6c6573' },
-      { t: 'Wood-grain',       d: 'Warm wood-effect finishes with decorative glazing.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' },
-      { t: 'Sliding doors',    d: 'Bright, quiet living rooms that open onto the terrace.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' }
+      { t: 'Casement windows', d: 'Weather-tight design with lasting comfort and easy maintenance.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
+      { t: 'Sliding windows',  d: 'Smooth operation, space-saving design, and contemporary elegance.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
+      { t: 'Georgian Bars Windows', d: 'Classic grille detailing with timeless charm and modern functionality.',                   img: 'assets/showcase/upvc-3.jpg', tone: '#8c6d6a' },
+      { t: 'Tilt Windows',      d: 'Controlled ventilation with practical functionality and refined design',                      img: 'assets/showcase/upvc-4.jpg', tone: '#6c6573' },
+      { t: 'Wood-Finish Windows',       d: 'The warmth of wood with the durability of uPVC.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' },
+      { t: 'Sliding doors',    d: 'Expansive views with effortless movement and seamless connectivity.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' }
     ]
   };
   var track = document.getElementById('track');
