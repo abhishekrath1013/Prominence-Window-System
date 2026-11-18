@@ -7,9 +7,9 @@
     opacity: 0; transition: opacity .25s ease; will-change: transform;
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
   }
-  .pcur img { display: block; width: 100%; height: 100%; object-fit: contain; transform-origin: 50% 0; transition: transform .25s cubic-bezier(.22, .7, .2, 1); }
+  .pcur img { display: block; width: 100%; height: 100%; object-fit: contain; transform-origin: 50% 0; transform: rotate(-45deg); transition: transform .25s cubic-bezier(.22, .7, .2, 1); }
   html.has-pcur .pcur.is-on { opacity: 1; }
-  .pcur.is-link img { transform: scale(1.35); }
-  .pcur.is-down img { transform: scale(.82); }
+  .pcur.is-link img { transform: rotate(-45deg) scale(1.3); }
+  .pcur.is-down img { transform: rotate(-45deg) scale(.82); }
 }
 @media (prefers-reduced-motion: reduce) { .pcur img { transition: none; } }
