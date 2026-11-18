@@ -722,3 +722,9 @@ html.intro .l--pano { animation: intro-pano 1.5s .15s cubic-bezier(.22,.7,.2,1) 
 @keyframes hint-r { 50% { transform: translateX(6px); } }
 .hero__hint .t { display: none; }
 @media (hover: none), (pointer: coarse) { .hero__hint .m { display: none; } .hero__hint .t { display: inline; } }
+
+/* panel copy update: slightly smaller headline for the longer lines + optional sub line */
+.apanel h3, .apanel--l h3 { top: 188px; font-size: 30px; line-height: 38px; }
+.apanel__sub { position: absolute; left: 0; top: 276px; font-family: 'Inter', var(--font); font-size: 17px; font-weight: 500; opacity: .85; }
+.apanel__item:nth-of-type(1), .apanel__item:nth-of-type(2) { top: 340px !important; }
+.apanel__item:nth-of-type(3), .apanel__item:nth-of-type(4) { top: 515px !important; }

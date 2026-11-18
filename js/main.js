@@ -204,12 +204,12 @@
   // Stock photography Section photos live in assets/showcase/.
   var SETS = {
     alu: [
-      { t: 'Grand entrance',   d: 'Slim aluminium frames that open a hall to the light.',            img: 'assets/showcase/alu-1.jpg', tone: '#6b5a58' },
-      { t: 'City views',       d: 'Floor-to-ceiling glazing that frames the skyline.',               img: 'assets/showcase/alu-2.jpg', tone: '#3d4a68' },
-      { t: 'Living spaces',    d: 'Clean sightlines for bright, open living rooms.',                 img: 'assets/showcase/alu-3.jpg', tone: '#7a4a48' },
-      { t: 'Sea-view sliders', d: 'Wide sliding doors that bring the horizon indoors.',              img: 'assets/showcase/alu-4.jpg', tone: '#b79a7a' },
-      { t: 'Garden access',    d: 'Large openings that connect rooms to the garden.',                img: 'assets/showcase/alu-5.jpg', tone: '#6f7a62' },
-      { t: 'Courtyard lounge', d: 'Seamless glass walls for calm, private courtyards.',              img: 'assets/showcase/alu-6.jpg', tone: '#4b4f52' }
+      { t: 'Slim sightlines', d: 'Ultra-thin frames for unobstructed panoramic views.', img: 'assets/showcase/alu-1.jpg', tone: '#6b5a58' },
+      { t: 'Extreme durability', d: 'High-grade aluminium resists warping, cracking, and bending for decades.', img: 'assets/showcase/alu-2.jpg', tone: '#3d4a68' },
+      { t: 'Zero maintenance', d: 'Powder-coated finishes don’t need repainting, and can be cleaned easily.', img: 'assets/showcase/alu-3.jpg', tone: '#7a4a48' },
+      { t: 'Superior weatherproofing', d: 'Precision-engineered seals offer protection from rain, dust and extreme heat.', img: 'assets/showcase/alu-4.jpg', tone: '#b79a7a' },
+      { t: 'Corrosion resistant', d: 'Rust-proof metal resists moisture and oxidation, looking fresh for a lifetime.', img: 'assets/showcase/alu-5.jpg', tone: '#6f7a62' },
+      { t: 'Eco-friendly', d: '100% recyclable material retains structural integrity without compromising on quality.', img: 'assets/showcase/alu-6.jpg', tone: '#4b4f52' }
     ],
     upvc: [
       { t: 'Casement windows', d: 'Weather-tight uPVC casements with a clean, low-maintenance finish.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
@@ -281,18 +281,18 @@
 
   /* ------------------------------------------------ ACCORDION */
   var ITEMS = [
-    { i: 'eye',   t: 'Tailored to your dream', tone: '#a98d74', img: 'assets/showcase/upvc-5.jpg',
-      p: 'Every window is made to measure. Choose the style — casement, sliding, tilt & turn or slide & fold — then the glazing and the finish, from classic white to wood-grain laminates backed by a 20-year warranty.' },
-    { i: 'medal', t: 'Quality & Durability', tone: '#9a8f84', img: 'assets/infra/infra-3.png',
-      p: 'Lead-free, multi-chambered profiles with 2.3–2.5 mm walls, 1.5 mm galvanised steel and fusion-welded corners — tested for 25,000+ hours by SKZ Germany and certified by BSI UK.' },
-    { i: 'cart',  t: 'Comprehensive Offerings', tone: '#8d9a94', img: 'assets/showcase/alu-3.jpg',
-      p: 'uPVC and aluminium windows and doors in one place: casement, sliding, tilt & turn, slide & fold, bay and panoramic systems, with single, double or triple glazing.' },
-    { i: 'smile', t: 'Seamless Experience', tone: '#a1998c', img: 'assets/showcase/upvc-6.jpg',
-      p: 'One team from first call to final fit — site measurement, manufacture at our Coimbatore plant and installation — so you deal with one partner, not many.' },
-    { i: 'guide', t: 'Expert Guidance at Every Step', tone: '#8f94a0', img: 'assets/showcase/alu-2.jpg',
-      p: 'Our specialists help you compare uPVC and aluminium room by room — noise, heat, security and views — and choose what fits your home, climate and budget.' },
-    { i: 'chat',  t: 'Exceptional Support', tone: '#a39382', img: 'assets/showcase/upvc-3.jpg',
-      p: 'Responsive after-sales service and a dedicated helpline — 1800 833 4500 — whenever you need us.' }
+    { i: 'eye', t: 'You dream it. We craft it.', tone: '#a98d74', img: 'assets/showcase/upvc-5.jpg',
+      p: 'Custom-engineered windows and doors tailored to match your vision.' },
+    { i: 'medal', t: 'Excellence meets endurance.', tone: '#9a8f84', img: 'assets/infra/infra-3.png',
+      p: 'Precision-built aluminium frames designed for quality and robustness.' },
+    { i: 'cart', t: 'Anything. And everything.', tone: '#8d9a94', img: 'assets/showcase/alu-3.jpg',
+      p: 'A comprehensive lineup of impressive styles and finishes.' },
+    { i: 'smile', t: 'Stellar service, start to finish.', tone: '#a1998c', img: 'assets/showcase/upvc-6.jpg',
+      p: 'Seamless execution from initial measurement to installation.' },
+    { i: 'guide', t: 'Be guided by pros.', tone: '#8f94a0', img: 'assets/showcase/alu-2.jpg',
+      p: 'Expert advice to help you pick the perfect windows.' },
+    { i: 'chat', t: 'Solid support. Now and forever.', tone: '#a39382', img: 'assets/showcase/upvc-3.jpg',
+      p: 'Dependable after-sales care and responsive service beyond installation.' }
   ];
   /* ---- explore: pointers (tabs) switch the card */
   var xtabs = document.getElementById('xtabs'), xcard = document.getElementById('xcard');
