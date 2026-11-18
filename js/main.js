@@ -213,11 +213,11 @@
     ],
     upvc: [
       { t: 'Casement windows', d: 'Weather-tight design with lasting comfort and easy maintenance.', img: 'assets/showcase/upvc-1.jpg', tone: '#8d8b84' },
-      { t: 'Sliding windows',  d: 'Smooth operation, space-saving design, and contemporary elegance.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
       { t: 'Georgian Bars Windows', d: 'Classic grille detailing with timeless charm and modern functionality.',                   img: 'assets/showcase/upvc-3.jpg', tone: '#8c6d6a' },
+      { t: 'Sliding windows',  d: 'Smooth operation, space-saving design, and contemporary elegance.',               img: 'assets/showcase/upvc-2.jpg', tone: '#7c8577' },
       { t: 'Tilt Windows',      d: 'Controlled ventilation with practical functionality and refined design',                      img: 'assets/showcase/upvc-4.jpg', tone: '#6c6573' },
-      { t: 'Wood-Finish Windows',       d: 'The warmth of wood with the durability of uPVC.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' },
-      { t: 'Sliding doors',    d: 'Expansive views with effortless movement and seamless connectivity.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' }
+      { t: 'Sliding doors',    d: 'Expansive views with effortless movement and seamless connectivity.',           img: 'assets/showcase/upvc-6.jpg', tone: '#b9a994' },
+      { t: 'Wood-Finish Windows',       d: 'The warmth of wood with the durability of uPVC.',               img: 'assets/showcase/upvc-5.jpg', tone: '#a08a6c' }
     ]
   };
   var track = document.getElementById('track');
