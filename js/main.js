@@ -68,8 +68,12 @@
 
   // The Aluminium and uPVC sub-sites are hidden for now. Set to true to turn them on (buttons, redirect and menu links).
   var SUBSITES_LIVE = false;
-  var PAGES = { alu: 'aluminium-windows/', upvc: 'upvc-windows/' };
-  if (SUBSITES_LIVE) Array.prototype.forEach.call(document.querySelectorAll('[data-href]'), function (a) { a.setAttribute('href', a.getAttribute('data-href')); });
+  var PAGES = { alu: 'https://prominence-aluminium-website.vercel.app/', upvc: 'upvc-windows/' };
+  // which systems have a live page to continue to: Aluminium goes to the Vercel site, uPVC is still hidden
+  var LIVE = { alu: true, upvc: SUBSITES_LIVE };
+  var aluBtn = document.querySelector('.hero-btn[data-go="alu"]');
+  if (aluBtn) aluBtn.setAttribute('href', PAGES.alu);
+  if (SUBSITES_LIVE) Array.prototype.forEach.call(document.querySelectorAll('[data-href]'), function (a) { if (a.getAttribute('data-go') !== 'alu') a.setAttribute('href', a.getAttribute('data-href')); });
   var lastChange = 0;
 
   // Hover to explore (mouse / trackpad): moving towards the left or right of the hero slides the scene to that side,
@@ -92,13 +96,13 @@
     var recent = Date.now() - lastChange < 1200;          // ignore clicks while the pan is still running
     if (t) {
       var go = t.getAttribute('data-go');
-      if (t.tagName === 'A' && state === go) { if (recent || !SUBSITES_LIVE) e.preventDefault(); return; }   // open → follow the link (when live)
+      if (t.tagName === 'A' && state === go) { if (recent || !LIVE[go]) e.preventDefault(); return; }   // open → follow the link (when live)
       if (t.tagName === 'A') e.preventDefault();
       setState(go);
     } else if (state === 'home') {
       var r = hero.getBoundingClientRect();
       setState(e.clientX - r.left < r.width / 2 ? 'upvc' : 'alu');
-    } else if (!recent && SUBSITES_LIVE) {
+    } else if (!recent && LIVE[state]) {
       window.location.href = PAGES[state];
     }
     hero.classList.remove('has-tip');
